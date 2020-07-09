@@ -1,47 +1,10 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 #search {
   display: block;
-  margin: auto;
-  margin-top: 15px;
   width: 90%;
+  margin-top: 40px;
+  border-radius: 1px;
+  height: 40px;
+  border: 5px #184f64 solid;
   
 }
 
@@ -53,18 +16,48 @@
   display: block;
   margin: auto;
   text-align: center;
+  margin-top: 20px;
+  font-family: 'Spectral', serif;
+  font-size: 4em;
 }
 
 #login{
   display: block;
   margin: auto;
-  margin-left: 15px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 45px;
+  margin-bottom: 20px;
   width: 80%;
 }
 
-#header-object{
+.sign#login {
+  margin-left: 20px;
+}
+
+#experimentNav {
+  position: fixed;
+  z-index: 5;
+  width: 0%;
+  height: 100vh;
+  margin-left: -15px;
+  background-color: red;
+  transition: width 2s;
+}
+
+.navElement {
+  line-height: 50px;
+  width: 80%;
+  margin-left: 35px;
+  margin-top: 20px;
+  text-align: left;
+  transition: background-color 0.5s;
+}
+.navElement:hover {
+  background-color:white;
+  transition: background-color 0.5s;
+}
+
+.sort {
+  border: 1px black solid;
 }
 
 
