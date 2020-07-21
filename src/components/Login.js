@@ -1,5 +1,14 @@
 import React from 'react'
 
+
+const containerStyle = {  
+    position: 'absolute', 
+    left: '50%', 
+    top: '35%',
+    transform: 'translate(-50%, -35%)',
+    minWidth: "1000px"
+}
+
 const headStyle = {
     width: "100%",
     height:"100px",
@@ -20,10 +29,17 @@ const formComponentStyle ={
   
 }
 
-const authComponentStyle = {
+const buttonStyleBig = {
     width: "100%",
     height: "3rem",
     marginTop:"15px",
+}
+
+const buttonStyleSmall = {
+    width: "100%",
+    height: "3rem",
+    marginTop:"15px",
+    backgroundColor: "yellow",
 }
 
 
@@ -44,6 +60,7 @@ function Head(){
         </div>
     );
 }
+
 function LoginForm({type, text}){
     return(
         <>
@@ -58,38 +75,41 @@ function LoginForm({type, text}){
     );
 }
 
-function Test(){
-    console.log("hello");
 
-    return null;
-}
+function LoginButton({buttonType}){
 
-function LoginAuthentication({text}){
+    var message;
+    var buttonStyle;
 
-    var value;
+    if(buttonType === "Google" || buttonType === "Facebook"){
+        message = `Login with ${buttonType.toString()}` ;
+        buttonStyle = buttonStyleBig;
 
-    if(text === "Google"){
-        value = "Login with Google";
+        return(
+            <div className="row justify-content-center">
+                <div className="col-4" align = "center">
+                    <input type="submit" value={message} style={buttonStyle} ></input>
+                </div>
+           </div>
+        );
     }
-    else if(text === "Facebook"){
-        value = "Login with Facebook";
+    else if(buttonType === "Log in" || buttonType === "Sign up"){
+        message = `${buttonType.toString()}`;
+        buttonStyle = buttonStyleSmall;
+
+        return(
+            <div className="col-2" align = "center">
+                <input type="submit" value={message} style={buttonStyle} ></input>
+            </div>
+        );
     }
     else{
-        value = "Login";
+        throw new Error("Incorrect buttonType");
+        return null;
     }
-
-    return(
-        <div className="row justify-content-center">
-            <div className="col-4" align = "center">
-                <input type="submit" value={value} style={authComponentStyle} ></input>
-            </div>
-       
-        </div>
-    );
 }
 
 function Divider(){
-
 
     return(
         <div className="row justify-content-center">
@@ -108,23 +128,28 @@ function Divider(){
 export default function Login() {
     return (
         <>
-             <div className="container ">
+             <div className="container" style={containerStyle}>
 
                 <Head/>
                 
                 <LoginForm type = "text" text = "Username"/>
                 <LoginForm type = "password" text = "Password"/>
-                <LoginAuthentication/>
-                <LoginAuthentication/>
+
+                <div className="row justify-content-center">
+                
+                    <LoginButton buttonType="Log in"/>
+                    <LoginButton buttonType="Sign up"/>
         
+                </div>
+
                 <Divider/>
 
                
-                <LoginAuthentication text="Google"/>
-                <LoginAuthentication text="Facebook"/>
+                <LoginButton buttonType="Google"/>
+                <LoginButton buttonType="Facebook"/>
             </div>    
 
-            <Test/>
+           
             
         </>
        
