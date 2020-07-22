@@ -18,7 +18,7 @@ function PieChart(){
           width: "50%",
           height: "80%",
         },
-        colors: ["#92b7c9", "#184f64"],
+        colors: ["#92b7c9", "#073763"],
         legend: {position:'top',alignment: 'center'},
         pieSliceBorderColor:"#ffe599",
         pieSliceTextStyle:{color:"#ffe599", fontName: 'Calibri', fontSize: 40}

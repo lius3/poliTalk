@@ -1,7 +1,7 @@
 import React from 'react';
 import MainDisplay from '../components/profile_components/MainDisplay';
 import HeaderHome from '../components/home_components/HeaderHome';
-import RecentLinkedArticles from '../components/profile_components/RecentLikedArticles';
+import RecentLikedArticles from '../components/profile_components/RecentLikedArticles';
 
 function Profile () {
     return (
@@ -13,7 +13,7 @@ function Profile () {
                         <MainDisplay/>
                     </div>
                     <div className="col-2">
-                        <RecentLinkedArticles/>
+                        <RecentLikedArticles/>
                     </div>
                     <div className="col-1"></div>
                 </div>

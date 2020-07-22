@@ -52,7 +52,7 @@ function HeaderHome(){
         the logo and the button that expands the nav bar.
         The third column contains the search bar. The fourth
         column contains the sign up and log in buttons. */}
-        <div className="row" style={{backgroundColor:"#184f64"}}>
+        <div className="row" style={{backgroundColor:"#073763ff"}}>
           <div className="col-xl-1"/>
           <div className="col-xl-3">
               <div>
@@ -62,7 +62,10 @@ function HeaderHome(){
                   <div className="menu_icon bar-3"></div>
                 </div>
                 {/* <button id="clickfornav">Navigation</button> */}
-                <h1 id="logo" style={{marginLeft:"10%", width: "40%"}}>PoliTalk</h1>
+                <Link to="/" exact>
+                  <h1 id="logo" style={{marginLeft:"10%", width: "40%"}}>PoliTalk</h1>
+                </Link>
+                
               </div>
           </div>
           <div className="col-xl-5">

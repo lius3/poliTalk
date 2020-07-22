@@ -1,6 +1,6 @@
 import React from 'react';
 
-function RecentLinkedArticles() {
+function RecentLikedArticles() {
     return (
         <div id="recent_liked_articles_container">
             <h4 className="recent_liked_articles_header">
@@ -10,4 +10,4 @@ function RecentLinkedArticles() {
     )
 }
 
-export default RecentLinkedArticles;
+export default RecentLikedArticles;

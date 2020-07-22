@@ -61,7 +61,9 @@ function Head(){
        
         <div className="row justify-content-center"  align="center">
             <div className="col-6">
-                <header style={headStyle}><h1 style={h1Style}>Politalk</h1></header>
+                <Link to="/" exact style={{textDecoration:"none"}}> 
+                    <header style={headStyle}><h1 style={h1Style}>Politalk</h1></header>
+                </Link>
             </div>         
         </div>
     );
