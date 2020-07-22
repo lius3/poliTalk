@@ -1,6 +1,8 @@
 import React from 'react';
 import Home from './pages/Home.js';
 import About from './pages/About.js';
+import Login from './pages/Login.js';
+import Profile from './pages/Profile.js';
 import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
 
 function App() {
@@ -12,7 +14,8 @@ function App() {
       <Router>
         <Switch>
           <Route path='/' exact component={Home}/>
-          <Route path='/about' component={About}/>
+          <Route path='/login' component={Login}/>
+          <Route path='/profile' component={Profile}/>
         </Switch>
       </Router>
 
