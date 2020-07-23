@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import HeaderHome from '../components/home_components/HeaderHome';
+import LogButton from '../components/authentication/LogButton';
+import {Auth0Provider} from '@auth0/auth0-react';
 
 
 const containerStyle = {  
@@ -155,6 +157,7 @@ export default function Login() {
                
                 <LoginButton buttonType="Google"/>
                 <LoginButton buttonType="Facebook"/>
+                <LogButton/>
             </div>    
 
            
