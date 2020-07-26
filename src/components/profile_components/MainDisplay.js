@@ -20,14 +20,14 @@ function UserDetails() {
 
 function MainDisplay() {
     
-    const { user, isAuthenticated } = useAuth0(); 
+    const { user } = useAuth0(); 
 
     return (
         <div id="main-display-container">
             <div className="top-section">
                 <img id="profile-profile_picture" className="rounded-circle" src={user.picture} alt=""/>
             </div>
-            <div className="bottom-section" style={{height:"85vh", minHeight:"max-content"}}>
+            <div className="bottom-section" style={{height:"60vh", minHeight:"max-content"}}>
                 <div className="profile-username-container" style={{paddingLeft:"20%"}}>
                     <div style={{width:"80%", display:"inline-block"}}>
                         <h1 className="profile-username">{user.name}</h1>

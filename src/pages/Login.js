@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import LogButton from '../components/authentication/LogButton';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const containerStyle = {  
     position: 'absolute', 
@@ -83,6 +83,8 @@ function LoginButton({buttonType}){
 
     var message;
     var buttonStyle;
+    const { loginWithRedirect } = useAuth0();
+
 
     if(buttonType === "Google" || buttonType === "Facebook"){
         message = `Login with ${buttonType.toString()}` ;
@@ -91,7 +93,7 @@ function LoginButton({buttonType}){
         return(
             <div className="row justify-content-center">
                 <div className="col-4" align = "center">
-                    <input type="submit" value={message} style={buttonStyle} ></input>
+                    <input type="submit" value={message} style={buttonStyle} onClick={()=>loginWithRedirect()}></input>
                 </div>
            </div>
         );
@@ -115,12 +117,10 @@ function Divider(){
 
     return(
         <div className="row justify-content-center">
-
           {/*empty divider div */}
             <div className="col-2" style={dividerStyle}>  </div>     
             <div className="col-1">  </div>   
             <div className="col-2" style={dividerStyle}>  </div>    
-
         </div>
     );
 
@@ -128,6 +128,7 @@ function Divider(){
 }
 
 export default function Login() {
+
     return (
         <>  
              <div className="container" style={containerStyle}>
@@ -150,7 +151,6 @@ export default function Login() {
                 <LoginButton buttonType="Google"/>
                 <LoginButton buttonType="Facebook"/>
                 
-                <LogButton/>
             </div>    
 
            

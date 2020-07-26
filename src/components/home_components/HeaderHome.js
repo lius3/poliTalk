@@ -4,9 +4,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 function HeaderHome(){
 
-    const { isAuthenticated  } = useAuth0();
+    const { isAuthenticated, user, logout  } = useAuth0();
 
-    if (isAuthenticated) {
+    if ( isAuthenticated ) {
       /*If the  user is authenticated, this version of the navBar and header is loaded.*/
 
       /*When the button is clicked, it calls this function, 
@@ -15,7 +15,6 @@ function HeaderHome(){
         let nav = document.getElementById("mainNavbar");
         let home = document.getElementById("home");
         let archive = document.getElementById("archive");
-        let profile = document.getElementById("profile");
         
         /*The nav bar goes from 0px to 300px width when it expands */
         nav.style.width = "300px";
@@ -26,7 +25,6 @@ function HeaderHome(){
         function content() {
           home.innerHTML="Home";
           archive.innerHTML="Archive"; 
-          profile.innerHTML = "Profile";
         }
         var a = nav.addEventListener("transitionend", content);
 
@@ -35,7 +33,6 @@ function HeaderHome(){
           if (e.target.id != "mainNavbar" && e.target.className != "navElement"){
             home.innerHTML="";
             archive.innerHTML="";
-            profile.innerHTML ="";
             nav.style.width = "0%";
             nav.style.transition = "width 0.2s";
             nav.removeEventListener("transitionend", content, false);
@@ -43,12 +40,22 @@ function HeaderHome(){
         }
       }
 
+      function dropDown(e) {
+        var triangleDown = document.getElementById("triangle-down");
+        var dropdownContent = document.getElementById("dropdown-content");
+        triangleDown.style.transform = "rotate(180deg)";
+        triangleDown.style.borderTopColor = "#92b7c9";
+        dropdownContent.style.display = "block";
+
+      }
+
       return (
         <>
           {/* This is the nav bar.  */}
           <div style={{backgroundColor:"#92b7c9"}} id="mainNavbar">
-            <Link style={{textDecorationLine:"none", color:"black"}} to="/"><h2 className="navElement" id="home"></h2></Link>        
-            <Link style={{textDecorationLine:"none", color:"black"}} to="/profile"><h2 className="navElement" id="profile"></h2></Link>
+            <Link style={{textDecorationLine:"none", color:"black"}} to="/">
+              <h2 className="navElement" id="home"></h2>
+            </Link>        
             <h2 className="navElement" id="archive"></h2>
           </div>
 
@@ -76,6 +83,20 @@ function HeaderHome(){
               <form>
                 <input id="search" type="text" placeholder="Search..." name="search"></input>
               </form>
+            </div>
+            <div className="col-1"></div>
+            <div className="col-1" style={{display:"flex"}} onClick={(e)=>dropDown(e.target)}>
+              <img className="rounded-circle" id="user_picture" src={user.picture} alt="" />
+              <div id="dropdown">
+                <div id="triangle-down"></div>
+                <div id="dropdown-content">
+                  <p onClick={()=>logout({returnTo: window.location.origin})}>Log out</p>
+                  <Link style={{textDecorationLine:"none"}} to="/profile">
+                    <p style={{color:"white"}}>Profile</p>
+                  </Link>
+                </div>
+              </div>
+              
             </div>
           </div>
         </>
