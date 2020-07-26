@@ -1,8 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Comment from './Comment.js';
-import Link from 'react-router-dom';
-
 
 function CommentsBox(){
 
@@ -44,7 +42,7 @@ function CommentsBox(){
     as a middleman.*/
     useEffect(()=> {
       let scrolledDiv = document.getElementById("scrollable-comments");      
-      if (scrolledDiv.scrollHeight == scrolledDiv.clientHeight){
+      if (scrolledDiv.scrollHeight === scrolledDiv.clientHeight){
         fetch("http://localhost/politalk/comments.php")
         .then (response => response.json())
         .then (jsonData=>{
@@ -67,7 +65,7 @@ function CommentsBox(){
     with a PHP REST API acting as a middleman.*/
     function moreComments() {
       let scrolledDiv = document.getElementById("scrollable-comments");
-      if (scrolledDiv.clientHeight + scrolledDiv.scrollTop == scrolledDiv.scrollHeight){
+      if (scrolledDiv.clientHeight + scrolledDiv.scrollTop === scrolledDiv.scrollHeight){
         if (comment_id > 0){
           fetch("http://localhost/politalk/comments.php")
           .then (response => response.json())
@@ -103,8 +101,7 @@ function CommentsBox(){
               }
             </div>
             <div className="text-right" style={{height:"9%"}}>
-              <p  style={{display:"inline-block", textDecorationLine:"underline", marginRight:"5%", marginTop:"10px"}}>+Add Comment</p>
-              <p style={{display:"inline-block", textDecorationLine:"underline", marginRight:"5%"}}>View all...</p>
+              <p  style={{display:"inline-block", textDecorationLine:"underline", marginRight:"5%", marginTop:"10px"}}>+Add Vote</p>
             </div>
           </div>
         </div>

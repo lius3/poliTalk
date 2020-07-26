@@ -1,9 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import HeaderHome from '../components/home_components/HeaderHome';
 import LogButton from '../components/authentication/LogButton';
-import {Auth0Provider} from '@auth0/auth0-react';
-
 
 const containerStyle = {  
     position: 'absolute', 
@@ -16,7 +13,6 @@ const containerStyle = {
 const headStyle = {
     width: "100%",
     height:"100px",
-    // backgroundColor: "blue",
     marginBottom: "15px",
     fontFamily: "'Spectral', serif",
     color: "#ffe599",
@@ -24,13 +20,11 @@ const headStyle = {
 }
 
 const h1Style = {
-    // backgroundColor: "yellow",
     lineHeight: "100px",
 }
 
 
 const formComponentStyle ={
-    // backgroundColor: "red",
     padding: "10px",
     width: "100%",
     height: "3rem",
@@ -47,7 +41,6 @@ const buttonStyleSmall = {
     width: "100%",
     height: "3rem",
     marginTop:"15px",
-    // backgroundColor: "yellow",
 }
 
 
@@ -58,7 +51,7 @@ const dividerStyle = {
     width: "100px"
 }
 
-function Head(){
+function Head() {
     return(
        
         <div className="row justify-content-center"  align="center">
@@ -115,7 +108,6 @@ function LoginButton({buttonType}){
     }
     else{
         throw new Error("Incorrect buttonType");
-        return null;
     }
 }
 
@@ -157,6 +149,7 @@ export default function Login() {
                
                 <LoginButton buttonType="Google"/>
                 <LoginButton buttonType="Facebook"/>
+                
                 <LogButton/>
             </div>    
 

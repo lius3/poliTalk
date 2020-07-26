@@ -53,6 +53,7 @@ html {
   height: 50px;
   width: 60px;
   margin-bottom: -5px;
+  margin-left: 7%;
   background-color: #92b7c9;
 
 }
@@ -258,6 +259,13 @@ button#send_vote {
   background-color: #073763ff;
 }
 
+#profile-profile_picture {
+  margin-left: 5%;
+  margin-top: 5%;
+  height: 100%;
+  width: 12%;
+}
+
 .profile-username {
   text-align: left;
   margin-top: 50px;
@@ -275,6 +283,9 @@ button#send_vote {
   text-align: center;
   margin-top: 10px;
 }
+
+/*Load screen*/
+
 
 
 
