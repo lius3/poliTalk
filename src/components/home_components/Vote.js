@@ -8,6 +8,7 @@ function Vote(){
     const { isAuthenticated, user, loginWithRedirect,  } = useAuth0();
 
     /*If the user is not authenticated, they will be redirected to the login page. */
+    console.log(isAuthenticated); 
     if (!isAuthenticated) {
         return (
             <>
@@ -22,7 +23,7 @@ function Vote(){
     
     /*If the user is authenticated, the user can access a popup screen when the vote button is clicked. */
     else {
-        window.onload = function() { 
+        window.onload = function() {
             let popup = document.getElementById("popup_container");
             if (window.innerWidth > 580) {
                 popup.style.left = "30%";

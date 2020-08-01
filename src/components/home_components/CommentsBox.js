@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Comment from './Comment.js';
 
 function CommentsBox(){
-
+  
     const [commentsList, changeCommentsList] = useState([]);
     const [comment_id, setComment_Id] = useState(null);
     const list = [...commentsList];
@@ -90,8 +90,7 @@ function CommentsBox(){
           <div  className="col-1 sort" style={{backgroundColor:"#184f64"}}></div>
           <div  className="col-1 sort" style={{backgroundColor:"#92b7c9" }}></div>
         </div> */}
-        <div className="row">
-          <div id="comments_box" className="col-12" style={{marginTop:"10px", border:"1px black solid", height: "100vh", marginBottom:"20px"}}>
+          <div id="comments_box" style={{marginTop:"10px", border:"1px black solid", height: "100vh", marginBottom:"20px"}}>
             <div id="scrollable-comments" onScroll={()=> moreComments()} style={{ overflow:"auto", height:"90%"}}>
               
               { 
@@ -104,7 +103,6 @@ function CommentsBox(){
               <p  style={{display:"inline-block", textDecorationLine:"underline", marginRight:"5%", marginTop:"10px"}}>+Add Vote</p>
             </div>
           </div>
-        </div>
       </>
     );
   }
