@@ -27,7 +27,7 @@ function MainPage(){
           <div style={{height:"50%"}}></div>
         </div>
         <div className="col-md-5" style={{minHeight:"500px"}}>
-          <PieChart yay_votes={0} nay_votes={0} />
+          <PieChart yay_votes={7} nay_votes={1} />
           <Vote/>
         </div>
     </div>
