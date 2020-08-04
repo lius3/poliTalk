@@ -135,6 +135,7 @@ html {
   position: absolute;
   display: none;
   background-color: #92b7c9;
+  border: 3px lightgray solid;
   min-width: 160px;
   z-index: 10;
 }
@@ -152,7 +153,7 @@ html {
 }
 /* Topic */
 #topic {
-  font-size: 32px;
+  font-size: 28px;
   font-family: 'Trebuchet MS';
   text-align: center;
   padding: 20px;
@@ -264,7 +265,9 @@ button#send_vote {
   height: 50px;
   width: 150px;
   background-color: #92b7c9;
-  color: yellow;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
 }
 
 #nay {
@@ -273,7 +276,9 @@ button#send_vote {
   height: 50px;
   width: 150px;
   background-color:#073763ff;
-  color: yellow;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
 }
 
 /*Element in Profile*/

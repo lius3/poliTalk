@@ -51,7 +51,7 @@ function Vote(){
             .then (stringData=>console.log(stringData))
             .catch (console.error())
             closeVote();
-            //window.location.reload(); 
+            window.location.reload(); 
         }
             
         function officialVote(vote){
@@ -91,7 +91,7 @@ function Vote(){
                                 <div style={{width:"90%", display:"block", margin:"auto", backgroundColor:"#073763", marginBottom:"-10px"}}>
                                     <h2 id="you_voted" style={{marginLeft:"10px"}}></h2>
                                 </div>
-                                <textarea placeholder="Please explain why..." id="explanation" cols="30" rows="10"></textarea>
+                                <textarea onKeyDown={(e) => e.keyCode == 13 ? sendVote() : console.log("Wrong key.")} placeholder="Please explain why..." id="explanation" cols="30" rows="10"></textarea>
                         </div>
                     </div>
                     <div id="send_vote_container">
