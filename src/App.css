@@ -103,9 +103,18 @@ html {
 
 #logIn{
   margin-left: 8%;
+  text-decoration-line: none;
+  color: black;
+}
+
+.header_button p {
+  line-height: 30px;
+  text-align: center;
 }
 #signUp {
   margin-right: 8%;
+  text-decoration-line: none;
+  color: black;
 }
 
 #user_picture {
@@ -116,6 +125,11 @@ html {
   display: block;
 }
 
+#dropdown-image_grid_column {
+  padding-left: 10%;
+  display: flex;
+  min-width: 100px;
+}
 #dropdown {
   position: relative;
   display: block;
@@ -258,6 +272,23 @@ button#send_vote {
   margin: auto;
 }
 
+#you_voted {
+  margin-left: 10px;
+}
+
+#explain-area {
+  height: 100%;
+  width: 85%;
+}
+
+#explain-area div {
+  width: 90%;
+  display: block;
+  margin: auto;
+  background-color: #073763;
+  margin-bottom: -10px;
+}
+
 #yay {
   display: inline-block;
   margin-top: 10px;
@@ -279,6 +310,44 @@ button#send_vote {
   color: white;
   font-weight: bold;
   border-radius: 10px;
+}
+
+/*Elements in CommentsBox*/
+#comments_box {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px black solid;
+  height: 100vh;
+}
+.text-right {
+  height: 9%;
+}
+.text-right p {
+  display: inline-block;
+  text-decoration-line: none;
+  margin-right: 5%;
+  margin-top: 10px;
+}
+
+#scrollable-comments {
+  overflow: auto;
+  height: 90%;
+}
+
+
+/*Elements in Home*/
+#BackgroundInfo-container {
+  display: block;
+  margin-top: 10px;
+  position: relative;
+  height: 40%;
+  width: 100%;
+}
+#Comments-container {
+  display: block;
+  margin: auto;
+  width: 90%;
+
 }
 
 /*Element in Profile*/

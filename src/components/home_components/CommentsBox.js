@@ -7,6 +7,7 @@ function CommentsBox(){
     const [commentsList, changeCommentsList] = useState([]);
     const [comment_id, setComment_Id] = useState(null);
     const list = [...commentsList];
+
     window.onresize = function() {
       /*This JS is to ensure that the vote popup looks
       okay when the window size gets small.*/ 
@@ -47,15 +48,18 @@ function CommentsBox(){
         .then (response => response.json())
         .then (jsonData=>{
           if (comment_id == null) {
-            console.log(jsonData.length-1);
             setComment_Id(jsonData.length-1);
           }
-          else {            
-            list.push({user:JSON.stringify(jsonData[comment_id].username), explanation:JSON.stringify(jsonData[comment_id].explanation)});
-            changeCommentsList(list);
-            setComment_Id(comment_id-1);
+          else {
+            try {
+              list.push({user:JSON.stringify(jsonData[comment_id].username), explanation:JSON.stringify(jsonData[comment_id].explanation)});
+              changeCommentsList(list);
+              setComment_Id(comment_id-1);              
+            }
+            catch(e) {
+              console.log("No more comments to load.");
+            }            
           }
-
         })
         .catch(console.error())
       }
@@ -63,7 +67,7 @@ function CommentsBox(){
 
     /*we load in the comments from our MySQL database each time  a user reaches the end of their scroll, 
     with a PHP REST API acting as a middleman.*/
-    function moreComments() {
+    const moreComments = () => {
       let scrolledDiv = document.getElementById("scrollable-comments");
       if (scrolledDiv.clientHeight + scrolledDiv.scrollTop === scrolledDiv.scrollHeight){
         if (comment_id > 0){
@@ -90,17 +94,16 @@ function CommentsBox(){
           <div  className="col-1 sort" style={{backgroundColor:"#184f64"}}></div>
           <div  className="col-1 sort" style={{backgroundColor:"#92b7c9" }}></div>
         </div> */}
-          <div id="comments_box" style={{marginTop:"10px", border:"1px black solid", height: "100vh", marginBottom:"20px"}}>
-            <div id="scrollable-comments" onScroll={()=> moreComments()} style={{ overflow:"auto", height:"90%"}}>
-              
+          <div id="comments_box">
+            <div id="scrollable-comments" onScroll={()=> moreComments()}>   
               { 
                 commentsList.map((item, index) => (
                   <Comment key={index} username={item.user.substring(1, item.user.length-1)} explanation={item.explanation.substring(1, item.explanation.length-1)}/> 
                 ))
               }
             </div>
-            <div className="text-right" style={{height:"9%"}}>
-              <p  style={{display:"inline-block", textDecorationLine:"underline", marginRight:"5%", marginTop:"10px"}}>+Add Vote</p>
+            <div className="text-right">
+              <p>+Add Vote</p>
             </div>
           </div>
       </>
