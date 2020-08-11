@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 import Topic from '../components/home_components/Topic';
-import Comments from '../components/home_components/CommentsBox';
+import CommentsBox from '../components/home_components/voting_components/CommentsBox';
 import HeaderHome from '../components/home_components/HeaderHome';
 import BackgroundInfo from '../components/home_components/BackgroundInfo';
 import VotingSystem from '../components/home_components/voting_components/VotingSystem';
@@ -13,7 +13,7 @@ function Home(){
 
   /**We populate the Topic space with a topic pulled from database. */
   useEffect(()=> {
-    fetch('http://localhost/politalk/poll_table.php')
+    fetch("https://polls.thien-bui.com/index.php")
     .then (res => res.json())
     .then (jsonData => {
         setTopic(jsonData.poll_question)
@@ -40,7 +40,7 @@ function Home(){
       </div>
       <div className="row" style={{marginTop:"100px", minWidth:"300px"}}>
         <div id="Comments-container">
-          <Comments/>
+          <CommentsBox/>
         </div>
       </div>
     </>

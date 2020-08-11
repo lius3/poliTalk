@@ -14,7 +14,7 @@ function VotingSystem() {
 
     /*When the Home page is loaded, we pull in data from database to populate the values of our Pie Chart*/
     useEffect(()=> {
-        fetch('http://localhost/politalk/poll_table.php')
+        fetch("https://polls.thien-bui.com/index.php")
         .then (res => res.json())
         .then (jsonData => {
             setYays(Number(jsonData.total_yays))
@@ -41,7 +41,7 @@ function VotingSystem() {
                 popup.style.left = "30%";
               }
               else {
-                popup.style.left = "15%";
+                popup.style.left = "12%";
               }
         }
     
@@ -50,8 +50,8 @@ function VotingSystem() {
             let you_voted = document.getElementById("you_voted");
             let explain = document.getElementById("explanation");
             let data = {username: user.name, explanation: explain.value};
-            let poll_table = "http://localhost/politalk/poll_table.php";
-            let req = new Request("http://localhost/politalk/comments.php",
+            let poll_table = "https://polls.thien-bui.com/index.php";
+            let req = new Request("https://explanations.thien-bui.com/index.php",
             {
                 method:'post',
                 headers: {
@@ -80,7 +80,9 @@ function VotingSystem() {
             })
             fetch(update_poll)
             .catch (console.error())
+            .finally (console.log("Triggered."))
             closeVote();
+            window.location.hash = "comments_box";
         }
         
         /**Open the popup and display text according if user clicked Yay or Nay button. */
@@ -97,8 +99,10 @@ function VotingSystem() {
         const closeVote = () => {
             let disable = document.getElementById("gray_out");
             let popup = document.getElementById("popup_container");
+            let explain = document.getElementById("explanation");
             disable.style.display = "none";            
             popup.style.display = "none";
+            explain.value = "";
         }
 
         return (
@@ -130,7 +134,7 @@ function VotingSystem() {
                     </div>
                     <div id="send_vote_container">
                         <button id="send_vote" onClick={()=> sendVote()}>
-                            Submit
+                            Vote
                         </button>
                     </div>        
                 </div>

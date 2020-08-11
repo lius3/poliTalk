@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 
 /**Vote buttons that redirect to Log In if user is not authenticated. */
-function RedirectVoteButtons() {
+function UnAuthdVoteBtns() {
 
     const { loginWithRedirect } = useAuth0();
 
@@ -15,4 +15,4 @@ function RedirectVoteButtons() {
     )
 }
 
-export default RedirectVoteButtons;
+export default UnAuthdVoteBtns;

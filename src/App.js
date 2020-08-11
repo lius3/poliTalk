@@ -4,7 +4,6 @@ import Login from './pages/Login.js';
 import Profile from './pages/Profile.js';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Auth0Provider} from '@auth0/auth0-react';
-import ProtectedRoute from './components/authentication/ProtectedRoute.js';
 
 function App() {
 
@@ -13,7 +12,8 @@ function App() {
     <Auth0Provider
       domain="dev-olg0mywd.us.auth0.com"
       clientId="46QahzxF1pwiiU2KlTJyPn8eV4Zwmlss"
-      redirectUri={"http://localhost:3000"}
+      redirectUri={"https://politalk.netlify.app"}
+      
     >
       <Router>
         <Switch>
