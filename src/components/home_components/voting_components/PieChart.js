@@ -19,7 +19,7 @@ function PieChart({yay_votes, nay_votes}){
     if (yay_votes > 0 || nay_votes > 0) {
       return (
         <Chart
-            height={"600px"}
+            height={"400px"}
             chartType="PieChart"
             data={[
               ['Vote', '# of Votes'],
@@ -28,14 +28,14 @@ function PieChart({yay_votes, nay_votes}){
             ]}
             options={{
               chartArea: {
-                width: "50%",
-                height: "90%",
+                width:"95%",
+                height: "100%"
               },
               is3D: true,
               colors: ["#073763", "#92b7c9"],
               legend: {position:'none',alignment: 'center'},
               pieSliceBorderColor:"#ffe599",
-              pieSliceTextStyle:{color:"#ffe599", fontName: 'Calibri', fontSize: 40},
+              pieSliceTextStyle:{color:"#ffe599", fontName: 'Calibri', fontSize: 30},
               animation: {
                 duration: 4000,
                 easing: 'out',

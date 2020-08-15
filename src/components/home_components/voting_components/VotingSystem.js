@@ -5,9 +5,7 @@ import UnAuthdVoteBtns from './UnAuthdVoteBtns';
 
 /*This file returns the PieChart and Vote buttons*/
 
-function VotingSystem() {
-    const [ yays, setYays ] = useState(0); /*This value is fed into 'data' attribute of PieChart component */
-    const [ nays, setNays ] = useState(0); /*This value is fed into 'data' attribute of PieChart component */
+function VotingSystem({yays, nays, setYays, setNays, setComment_Id, changeCommentsList}) {
     const [ loaded, setLoaded ] = useState(true); /*This variable is used to make sure that some useEffects are triggered only once every time Home page loads. */
 
     const { isAuthenticated, user } = useAuth0();
@@ -49,7 +47,16 @@ function VotingSystem() {
           /**Client-Server interactions that happens once user submits their vote. */
             let you_voted = document.getElementById("you_voted");
             let explain = document.getElementById("explanation");
-            let data = {username: user.name, explanation: explain.value};
+            if (you_voted.innerHTML == "You voted Yay.") {
+                var poll_data = {vote : 'YAY'};
+                var data = {username: user.name, explanation: explain.value, vote: 1};
+                setYays(yays+1);
+            }
+            else {
+                var poll_data = {vote : 'NAY'};
+                var data = {username: user.name, explanation: explain.value, vote: 0};
+                setNays(nays+1);
+            }
             let poll_table = "https://polls.thien-bui.com/index.php";
             let req = new Request("https://explanations.thien-bui.com/index.php",
             {
@@ -60,16 +67,13 @@ function VotingSystem() {
                 },
                 body: JSON.stringify(data)    
             })
+            
             fetch(req)
+            .then(()=>{
+                setComment_Id(null)
+            })
             .catch (console.error())
-            if (you_voted.innerHTML == "You voted Yay.") {
-                var poll_data = {vote : 'YAY'};
-                setYays(yays+1);
-            }
-            else {
-                var poll_data = {vote : 'NAY'}
-                setNays(nays+1);
-            }
+
             let update_poll = new Request(poll_table, {
               method:'post',
               headers: {
@@ -80,8 +84,9 @@ function VotingSystem() {
             })
             fetch(update_poll)
             .catch (console.error())
-            .finally (console.log("Triggered."))
             closeVote();
+            changeCommentsList([])
+            
             window.location.hash = "comments_box";
         }
         

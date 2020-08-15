@@ -9,7 +9,12 @@ import VotingSystem from '../components/home_components/voting_components/Voting
 
 function Home(){
 
+  const [commentsList, changeCommentsList] = useState([]);
+  const [comment_id, setComment_Id] = useState(null);
+  const list = [...commentsList];
   const [ topic , setTopic ] = useState("");
+  const [ yays, setYays ] = useState(0); /*This value is fed into 'data' attribute of PieChart component */
+  const [ nays, setNays ] = useState(0); /*This value is fed into 'data' attribute of PieChart component */
 
   /**We populate the Topic space with a topic pulled from database. */
   useEffect(()=> {
@@ -24,24 +29,24 @@ function Home(){
   return (
     <>
       <HeaderHome/>
-      <div className="row" style={{marginTop:"30px"}}>
-          <div className="col-md-1"></div>
+      {/* <div style={{height:"100vh", width:"70px", backgroundColor:"#92b7c9", position:"fixed", top:"0", zIndex:"10"}}>asdfa</div> */}
+      <div className="row" style={{}}>
+          <div className="col-md-1 pd-0" >
+          </div>
           <div className="col-md-5" style={{minHeight:"700px"}}>
-            <div style={{display:"block", height:"50%"}}>
+            <div style={{display:"block"}}>
               <Topic question={topic}/>
             </div>
             <div id="BackgroundInfo-container">
               <BackgroundInfo/>
             </div>
+            <div style={{marginTop:"50px"}}>
+              <VotingSystem yays={yays} setYays={setYays} nays={nays} setNays={setNays} commentsList={commentsList} changeCommentsList={changeCommentsList} comment_id={comment_id} setComment_Id={setComment_Id}/>
+            </div>
           </div>
-          <div className="col-md-6" style={{minHeight:"500px"}}>
-            <VotingSystem/>
+          <div className="col-md-6" style={{height:"85vh", minHeight:"810px"}}>
+            <CommentsBox commentsList={commentsList} changeCommentsList={changeCommentsList} comment_id={comment_id} setComment_Id={setComment_Id} list={list}/>
           </div>
-      </div>
-      <div className="row" style={{marginTop:"100px", minWidth:"300px"}}>
-        <div id="Comments-container">
-          <CommentsBox/>
-        </div>
       </div>
     </>
   );

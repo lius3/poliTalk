@@ -13,17 +13,17 @@ function HeaderHome(){
     /*If the  user is authenticated, this version of the header is loaded.*/
     if ( isAuthenticated ) {
       const dropDown = (e) => {
-        var triangleDown = document.getElementById("triangle-down");
+        // var triangleDown = document.getElementById("triangle-down");
         var dropdownContent = document.getElementById("dropdown-content");
-        triangleDown.style.visibility = "hidden";
-        triangleDown.style.borderTopColor = "#92b7c9";
+        // triangleDown.style.visibility = "hidden";
+        // triangleDown.style.borderTopColor = "#92b7c9";
         dropdownContent.style.display = "block";
 
         /*If you click outside of the dropdown, it closes the dropdown. */
         document.body.onclick = function(e) {
           if (e.target.id !== "dropdown") {
-            triangleDown.style.visibility = "visible";
-            triangleDown.style.borderTopColor = "white";
+            // triangleDown.style.visibility = "visible";
+            // triangleDown.style.borderTopColor = "white";
             dropdownContent.style.display = "none";
           }
         }
@@ -47,7 +47,8 @@ function HeaderHome(){
             <div id="dropdown-image_grid_column" className="col-md-2">
               <div onClick={(object_clicked)=>dropDown(object_clicked.target)} style={{display:"flex"}}> 
                 <div id="dropdown">
-                  <div id="triangle-down"></div>
+                  {/* <div id="triangle-down"></div> */}
+                  <img className="rounded-circle" id="user_picture" src={user.picture} alt="" />    
                   <div id="dropdown-content">
                     <Link style={{textDecorationLine:"none"}} to="/profile">
                       <p>Profile</p>
@@ -57,7 +58,6 @@ function HeaderHome(){
                     <p onClick={()=>logout({returnTo: window.location.origin})}>Log out</p>
                   </div>
                 </div>
-                <img className="rounded-circle" id="user_picture" src={user.picture} alt="" />    
               </div> 
             </div>
           </div>

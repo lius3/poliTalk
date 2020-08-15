@@ -12,7 +12,8 @@ function App() {
     <Auth0Provider
       domain="dev-olg0mywd.us.auth0.com"
       clientId="46QahzxF1pwiiU2KlTJyPn8eV4Zwmlss"
-      redirectUri={"https://politalk.netlify.app"}
+      // redirectUri={"https://politalk.netlify.app"}
+      redirectUri={"http://localhost:3000/"}
       
     >
       <Router>

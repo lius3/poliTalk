@@ -119,6 +119,7 @@ html {
 
 #user_picture {
   margin-top: 15px;
+  margin-bottom: 15px;
   height: 50px;
   width: 50px;
   border: 3px solid white;
@@ -181,6 +182,13 @@ html {
   height: 50px;
 }
 
+.comment-thumb {
+  color: black;
+}
+
+.comment-thumb:hover {
+  color: #073763ff;
+}
 
 
 /*Elements in Vote, including the Vote Popup*/
@@ -294,7 +302,7 @@ button#send_vote {
   margin-top: 10px;
   margin-right: 20px;
   height: 50px;
-  width: 150px;
+  width: 130px;
   background-color: #92b7c9;
   color: white;
   font-weight: bold;
@@ -305,7 +313,7 @@ button#send_vote {
   display: inline-block;
   margin-top: 10px;
   height: 50px;
-  width: 150px;
+  width: 130px;
   background-color:#073763ff;
   color: white;
   font-weight: bold;
@@ -314,10 +322,13 @@ button#send_vote {
 
 /*Elements in CommentsBox*/
 #comments_box {
+  display: block;
+  margin: auto;
   margin-top: 10px;
   margin-bottom: 20px;
   border: 1px black solid;
-  height: 100vh;
+  height: 100%;
+  width: 98%;
 }
 
 #reload_comments_btn {
@@ -327,11 +338,12 @@ button#send_vote {
 }
 
 #refresh-icon {
-  transform: scaleX(-1);
+  transform: scaleX(-1) rotate(360deg);
+  transition: 1.5s transform;
 }
 #refresh-icon:hover {
   transform: scaleX(-1) rotate(-360deg) scale(1.25);
-  transition: 1s transform;
+  transition: 1.5s transform;
 }
 .text-right {
   height: 9%;
@@ -354,7 +366,7 @@ button#send_vote {
   display: block;
   margin-top: 10px;
   position: relative;
-  height: 40%;
+  height: 180px;
   width: 100%;
 }
 #Comments-container {

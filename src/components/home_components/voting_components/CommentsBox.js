@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Comment from './Comment.js';
+import React, { useEffect } from 'react';
+import Comment from './Comment.jsx';
 
-function CommentsBox(){
+function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_Id, list}){
   
-    const [commentsList, changeCommentsList] = useState([]);
-    const [comment_id, setComment_Id] = useState(null);
-    const list = [...commentsList];
-
     const reload_comments = () => {
         setComment_Id(null);
         changeCommentsList([]);
@@ -53,10 +49,11 @@ function CommentsBox(){
         .then (jsonData=>{
           if (comment_id == null) {
             setComment_Id(jsonData.length-1);
+            console.log("It is null.");
           }
           else {
             try {
-              list.push({user:JSON.stringify(jsonData[comment_id].username), explanation:JSON.stringify(jsonData[comment_id].explanation)});
+              list.push({user:JSON.stringify(jsonData[comment_id].username), explanation:JSON.stringify(jsonData[comment_id].explanation), vote: JSON.stringify(jsonData[comment_id].vote)});
               changeCommentsList(list);
               setComment_Id(comment_id-1);              
             }
@@ -113,13 +110,10 @@ function CommentsBox(){
             <div id="scrollable-comments" onScroll={()=> moreComments()}>   
               { 
                 commentsList.map((item, index) => (
-                  <Comment key={index} username={item.user.substring(1, item.user.length-1)} explanation={item.explanation.substring(1, item.explanation.length-1)}/> 
+                  <Comment key={index} username={item.user.substring(1, item.user.length-1)} explanation={item.explanation.substring(1, item.explanation.length-1)} vote={item.vote.substring(1, item.vote.length-1)}/> 
                 ))
               }
             </div>
-            {/* <div className="text-right">
-              <p>+Add Vote</p>
-            </div> */}
           </div>
       </>
     );
