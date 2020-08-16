@@ -31,7 +31,7 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
         .then (response => response.json())
         .then (jsonData=>{
           /*I push an object into list. This object stores a user's name and the explanation that goes with it.*/ 
-          list.push({user:JSON.stringify(jsonData[comment_id].username), explanation:JSON.stringify(jsonData[comment_id].explanation)});
+          list.push({user:JSON.parse(JSON.stringify(jsonData[comment_id].username)), explanation: JSON.parse(JSON.stringify(jsonData[comment_id].explanation)), vote: JSON.parse(JSON.stringify(jsonData[comment_id].vote))});
           changeCommentsList(list);
         })
         .catch(console.error())
@@ -47,13 +47,14 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
         fetch("https://explanations.thien-bui.com/index.php")
         .then (response => response.json())
         .then (jsonData=>{
+          console.log(JSON.stringify(jsonData));
           if (comment_id == null) {
             setComment_Id(jsonData.length-1);
             console.log("It is null.");
           }
           else {
             try {
-              list.push({user:JSON.stringify(jsonData[comment_id].username), explanation:JSON.stringify(jsonData[comment_id].explanation), vote: JSON.stringify(jsonData[comment_id].vote)});
+              list.push({user:JSON.parse(JSON.stringify(jsonData[comment_id].username)), explanation: JSON.parse(JSON.stringify(jsonData[comment_id].explanation)), vote: JSON.parse(JSON.stringify(jsonData[comment_id].vote))});
               changeCommentsList(list);
               setComment_Id(comment_id-1);              
             }
@@ -80,7 +81,7 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
           fetch("https://explanations.thien-bui.com/index.php")
           .then (response => response.json())
           .then (jsonData=>{
-            list.push({user:JSON.stringify(jsonData[comment_id].username), explanation:JSON.stringify(jsonData[comment_id].explanation)});
+            list.push({user:JSON.parse(JSON.stringify(jsonData[comment_id].username)), explanation: JSON.parse(JSON.stringify(jsonData[comment_id].explanation)), vote: JSON.parse(JSON.stringify(jsonData[comment_id].vote))});
             changeCommentsList(list);
           })
           .catch(console.error())
@@ -110,7 +111,7 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
             <div id="scrollable-comments" onScroll={()=> moreComments()}>   
               { 
                 commentsList.map((item, index) => (
-                  <Comment key={index} username={item.user.substring(1, item.user.length-1)} explanation={item.explanation.substring(1, item.explanation.length-1)} vote={item.vote.substring(1, item.vote.length-1)}/> 
+                  <Comment key={index} username={item.user} explanation={item.explanation} vote={item.vote}/> 
                 ))
               }
             </div>
