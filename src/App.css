@@ -58,7 +58,6 @@ html {
 
 }
 
-
 #clickfornav_icon:hover {
   background-color: gainsboro;
   transition: background-color 0.5s;
@@ -107,14 +106,15 @@ html {
   color: black;
 }
 
-.header_button p {
-  line-height: 30px;
-  text-align: center;
-}
 #signUp {
   margin-right: 8%;
   text-decoration-line: none;
   color: black;
+}
+
+.header_button p {
+  line-height: 30px;
+  text-align: center;
 }
 
 #user_picture {
@@ -137,14 +137,14 @@ html {
   margin-top: 5px;
 }
 
-#triangle-down {
+/*#triangle-down {
   margin-top: 60px;
   height: 0px;
   width: 0px;
   border-left: 7px solid transparent;
 	border-right: 7px solid transparent;
 	border-top: 7px solid white;
-}
+}*/
 
 #dropdown-content {
   position: absolute;
@@ -166,6 +166,7 @@ html {
 #dropdown-content p:hover {
   background-color: gray;
 }
+
 /* Topic */
 #topic {
   font-size: 28px;
@@ -175,23 +176,7 @@ html {
   cursor: pointer;
 }
 
-/* Elements in comment box */
-.sort {
-  margin-right: 5px;
-  border: 1px black solid;
-  height: 50px;
-}
-
-.comment-thumb {
-  color: black;
-}
-
-.comment-thumb:hover {
-  color: #073763ff;
-}
-
-
-/*Elements in Vote, including the Vote Popup*/
+/*Elements in VotingSystem*/
 #gray_out {
   z-index: 10;
   left: 0;
@@ -320,15 +305,68 @@ button#send_vote {
   border-radius: 10px;
 }
 
+/*Elements in ReplyPopup*/
+#reply_popup_container {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  height: 60%;
+  min-width: 250px;
+  min-height: 300px;
+  z-index: 10;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px black solid;
+}
+
+#reply-area {
+  height: 100%;
+  width: 100%;
+}
+
+#reply_text_area {
+  display: block;
+  margin: auto;
+  margin-top: 0;
+  border: 2px #073763ff solid;
+  padding: 10px;
+  font-size: 20px;
+  width: 90%;
+  height: 70%;
+}
+
+#send_reply_container {
+  margin-bottom: 20px;
+  width: 90%;
+  min-width: 50px;
+}
+
+#send_reply {
+  height: 40px;
+  width: 100px;
+  margin-left: 55%;
+}
+
+
 /*Elements in CommentsBox*/
+#new_comment {
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: rgb(248, 248, 248);
+}
+
+
 #comments_box {
   display: block;
   margin: auto;
   margin-top: 10px;
   margin-bottom: 20px;
-  border: 1px black solid;
-  height: 100%;
-  width: 98%;
+  border: 1px lightgray solid;
+  height: 95%;
+  width: 90%;
+  padding-top: 30px;
 }
 
 #reload_comments_btn {
@@ -337,14 +375,15 @@ button#send_vote {
   padding-bottom: 10px;
 }
 
-#refresh-icon {
+/*#refresh-icon {
   transform: scaleX(-1) rotate(360deg);
   transition: 1.5s transform;
 }
 #refresh-icon:hover {
   transform: scaleX(-1) rotate(-360deg) scale(1.25);
   transition: 1.5s transform;
-}
+}*/
+
 .text-right {
   height: 9%;
 }
@@ -357,7 +396,35 @@ button#send_vote {
 
 #scrollable-comments {
   overflow: auto;
-  height: 85%;
+  height: 95%;
+}
+
+/*Element in NewComment*/
+#NewComment-username {
+  display: inline-block;
+  color: #92b7c9;
+  font-size: 20px;
+  padding-top: 10px;
+  margin-right: 5px;
+}
+
+#NewComment-you_voted {
+  color: #92b7c9;
+  display: inline-block;
+  width: max-content;
+}
+
+#NewComment-explanation {
+  font-size: 18px;
+}
+
+
+/*Elements in Reply*/
+
+#reply {
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: rgb(252, 249, 249);
 }
 
 
@@ -420,7 +487,6 @@ button#send_vote {
   margin-top: 10px;
 }
 
-/*Load screen*/
 
 
 

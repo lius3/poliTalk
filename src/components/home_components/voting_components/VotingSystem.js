@@ -47,16 +47,18 @@ function VotingSystem({yays, nays, setYays, setNays, setComment_Id, changeCommen
           /**Client-Server interactions that happens once user submits their vote. */
             let you_voted = document.getElementById("you_voted");
             let explain = document.getElementById("explanation");
-            if (you_voted.innerHTML == "You voted Yay.") {
-                var poll_data = {vote : 'YAY'};
-                var data = {username: user.name, explanation: explain.value, vote: 1};
+
+            let poll_data = {vote : 'YAY'};
+            let data = {username: user.name, explanation: explain.value, vote: 1};
+            if (you_voted.innerHTML === "You voted Yay.") {
                 setYays(yays+1);
             }
             else {
-                var poll_data = {vote : 'NAY'};
-                var data = {username: user.name, explanation: explain.value, vote: 0};
+                poll_data = {vote : 'NAY'};
+                data = {username: user.name, explanation: explain.value, vote: 0};
                 setNays(nays+1);
             }
+
             let poll_table = "https://polls.thien-bui.com/index.php";
             let req = new Request("https://explanations.thien-bui.com/index.php",
             {
@@ -133,7 +135,7 @@ function VotingSystem({yays, nays, setYays, setNays, setComment_Id, changeCommen
                                 <div>
                                     <h2 id="you_voted"></h2>
                                 </div>
-                                <textarea onKeyDown={(pressedKey) => pressedKey.keyCode == 13 /*Is the pressed key the enter button*/? sendVote() : null }
+                                <textarea onKeyDown={(pressedKey) => pressedKey.keyCode === 13 /*Is the pressed key the enter button*/? sendVote() : null }
                                  placeholder="Please explain why..." id="explanation" cols="30" rows="10"></textarea>
                         </div>
                     </div>

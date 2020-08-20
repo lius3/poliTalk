@@ -49,7 +49,7 @@ function PieChart({yay_votes, nay_votes}){
     else {
       return (
         <div style={{display:"block", margin:"auto", marginTop:"25px", fontSize:"30px", 
-        backgroundColor:"#92b7c9", textAlign:"center", height:"600px", lineHeight:"600px", width:"90%"}}>
+        backgroundColor:"#92b7c9", textAlign:"center", height:"400px", lineHeight:"400px", width:"90%"}}>
         Be the first to vote!</div>
       )
     }

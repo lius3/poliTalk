@@ -1,4 +1,5 @@
 import React from 'react';
+import Reply from '../comments_related/Reply.jsx';
 
 function Comment({username, explanation, vote}){
 
@@ -21,7 +22,7 @@ function Comment({username, explanation, vote}){
         <div className="row">
           <div className="col-1"></div>
           <div className="col-10" style={{border:"1px black solid", height: "50px", backgroundColor:"#92b7c9"}}>
-            <h4 style={{display:"inline-block", lineHeight:"25px", width:"max-content", marginRight:"5px"}}>{username}</h4>
+            <h4 style={{display:"inline-block", lineHeight:"50px", width:"max-content", marginRight:"5px"}}>{username}</h4>
             <h5 id="wow" style={{display:"inline-block", width:"max-content"}}>{yes_or_no}</h5>    
           </div>
           <div className="col-1"></div>  
