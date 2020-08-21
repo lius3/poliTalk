@@ -60,7 +60,7 @@ function NewComment({username, explanation, vote, explanation_id, setExpID}) {
     }
 
     return (
-        <>
+        <>  
             <div>
                 <div className="container">
                     <div className="row">

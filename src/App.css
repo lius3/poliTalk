@@ -1,4 +1,4 @@
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 10px;
 }
 
@@ -8,7 +8,7 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: #92b7c9;
-} */
+}
 
 html {
   scroll-behavior: smooth;
@@ -173,10 +173,10 @@ html {
   font-family: 'Trebuchet MS';
   text-align: center;
   padding: 20px;
-  cursor: pointer;
+  cursor: default;
 }
 
-/*Elements in VotingSystem*/
+/* Elements in VotingSystem */
 #gray_out {
   z-index: 10;
   left: 0;

@@ -148,8 +148,8 @@ function VotingSystem({yays, nays, setYays, setNays, setComment_Id, changeCommen
             </div>
             {/* The yay and nay buttons */}
             <div className="vote_buttons">
-                <button id="yay" onClick={()=>openVote("Yay")}>YAY</button>
-                <button id="nay" onClick={()=>openVote("Nay")}>NAY</button>
+                <button id="yay" onClick={()=>openVote("Yay")}>YES</button>
+                <button id="nay" onClick={()=>openVote("Nay")}>NO</button>
             </div>
             </>
         );
