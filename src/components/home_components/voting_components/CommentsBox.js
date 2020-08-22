@@ -54,7 +54,7 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
           }
           else {
             try {
-              list.push({user:JSON.parse(JSON.stringify(jsonData[comment_id].username)), explanation: JSON.parse(JSON.stringify(jsonData[comment_id].explanation)), vote: JSON.parse(JSON.stringify(jsonData[comment_id].vote))});
+              list.push({user:JSON.parse(JSON.stringify(jsonData[comment_id].username)), explanation: JSON.parse(JSON.stringify(jsonData[comment_id].explanation)), vote: JSON.parse(JSON.stringify(jsonData[comment_id].vote)), created_time: JSON.parse(JSON.stringify(jsonData[comment_id].created_time))});
               changeCommentsList(list);
               setComment_Id(comment_id-1);              
             }
@@ -111,7 +111,7 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
             <div id="scrollable-comments" onScroll={()=> moreComments()}>   
               { 
                 commentsList.map((item, index) => (
-                  <Comment key={index} username={item.user} explanation={item.explanation} vote={item.vote}/> 
+                  <Comment key={index} username={item.user} explanation={item.explanation} vote={item.vote} timeStamp={item.created_time} /> 
                 ))
               }
             </div>
