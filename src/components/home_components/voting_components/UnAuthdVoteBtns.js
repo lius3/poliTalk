@@ -9,8 +9,8 @@ function UnAuthdVoteBtns() {
 
     return (
         <div className="vote_buttons">
-            <button id="yay" onClick={()=>loginWithRedirect()}>YAY</button>
-            <button id="nay" onClick={()=>loginWithRedirect()}>NAY</button>
+            <button id="yay" onClick={()=>loginWithRedirect()}>YES</button>
+            <button id="nay" onClick={()=>loginWithRedirect()}>NO</button>
         </div>
     )
 }
