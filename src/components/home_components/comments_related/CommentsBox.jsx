@@ -4,7 +4,18 @@ import ReplyPopup from './ReplyPopup.jsx';
 
 function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_Id, list}){
 
+
     const [explain_id, setExpID] = useState(null);
+
+    const modList = (jsonData, list) => {
+      let parsed_user = JSON.parse(JSON.stringify(jsonData[comment_id].username));
+      let parsed_explanation = JSON.parse(JSON.stringify(jsonData[comment_id].explanation));
+      let parsed_vote = JSON.parse(JSON.stringify(jsonData[comment_id].vote));
+      let parsed_explanation_id = JSON.parse(JSON.stringify(jsonData[comment_id].explanation_id));
+      let parsed_created_time = JSON.parse(JSON.stringify(jsonData[comment_id].created_time))
+      list.push({user: parsed_user, explanation: parsed_explanation, vote: parsed_vote, explanation_id: parsed_explanation_id, cTime: parsed_created_time});
+      changeCommentsList(list); 
+    }
 
     window.onresize = () => {
       /*This JS is to ensure that the vote popup looks
@@ -30,12 +41,7 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
         .then (response => response.json())
         .then (jsonData=>{
           /*I push an object into list. This object stores a user's name and the explanation that goes with it.*/ 
-          const parsed_user = JSON.parse(JSON.stringify(jsonData[comment_id].username))
-          const parsed_explanation = JSON.parse(JSON.stringify(jsonData[comment_id].explanation))
-          const parsed_vote = JSON.parse(JSON.stringify(jsonData[comment_id].vote))
-          const parsed_explanation_id = JSON.parse(JSON.stringify(jsonData[comment_id].explanation_id))
-          list.push({user: parsed_user, explanation: parsed_explanation, vote: parsed_vote, explanation_id: parsed_explanation_id});
-          changeCommentsList(list);
+          modList(jsonData,list);  
         })
         .catch(console.error())
         setComment_Id(comment_id-1);
@@ -55,13 +61,8 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
           }
           else {
             try {
-              const parsed_user = JSON.parse(JSON.stringify(jsonData[comment_id].username));
-              const parsed_explanation = JSON.parse(JSON.stringify(jsonData[comment_id].explanation));
-              const parsed_vote = JSON.parse(JSON.stringify(jsonData[comment_id].vote));
-              const parsed_explanation_id = JSON.parse(JSON.stringify(jsonData[comment_id].explanation_id));
-              list.push({user: parsed_user, explanation: parsed_explanation, vote: parsed_vote, explanation_id: parsed_explanation_id});
-              changeCommentsList(list);
-              setComment_Id(comment_id-1);              
+              modList(jsonData,list);     
+              setComment_Id(comment_id-1);       
             }
             catch(e) {
               console.log("No more comments to load.");
@@ -83,14 +84,9 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
           fetch("https://explanations.thien-bui.com/index.php")
           .then (response => response.json())
           .then (jsonData=>{
-            const parsed_user = JSON.parse(JSON.stringify(jsonData[comment_id].username))
-            const parsed_explanation = JSON.parse(JSON.stringify(jsonData[comment_id].explanation))
-            const parsed_vote = JSON.parse(JSON.stringify(jsonData[comment_id].vote))
-            const parsed_explanation_id = JSON.parse(JSON.stringify(jsonData[comment_id].explanation_id))
-            list.push({user: parsed_user, explanation: parsed_explanation, vote: parsed_vote, explanation_id: parsed_explanation_id});
-            changeCommentsList(list);
+            modList(jsonData,list);   
           })
-          .catch(console.error())
+          .catch(console.error()) 
           setComment_Id(comment_id-1);  
         }
       }
@@ -103,7 +99,7 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
             <div id="scrollable-comments" onScroll={()=> moreComments()}>   
               { 
                 commentsList.map((item, index) => (
-                  <NewComment key={index} username={item.user} explanation={item.explanation} vote={item.vote} explanation_id={item.explanation_id} setExpID={setExpID}/>
+                  <NewComment key={index} username={item.user} explanation={item.explanation} vote={item.vote} explanation_id={item.explanation_id} time={item.cTime} setExpID={setExpID}/>
                 ))
               }
             </div>
