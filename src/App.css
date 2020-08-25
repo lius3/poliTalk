@@ -82,6 +82,15 @@ html {
   border: 5px #073763ff solid;
 }
 
+.header_icon{
+  fill:white;
+}
+
+.header_icon:hover{
+  /* background-color: aqua; */
+  fill: lightgrey;
+}
+
 .header_button_container {
   display: flex;
   flex-wrap: nowrap;
