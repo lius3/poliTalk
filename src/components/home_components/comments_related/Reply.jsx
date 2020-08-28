@@ -1,7 +1,8 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import ConvertTime from "../../functions/ConvertTime";
 
-function Reply({username, reply}) {
+function Reply({username, reply, time}) {
 
     const { user } = useAuth0();
 
@@ -17,6 +18,7 @@ function Reply({username, reply}) {
                         <div className="col-9" id="reply">
                             <p style={{display:"inline-block", color:"#92b7c9", fontSize:"20px", paddingTop:"10px", marginRight:"5px"}}>{username}</p>
                             <p style={{fontSize:"18px"}}>{reply}</p>
+                            <p style={{fontSize:"18px"}}>{ConvertTime(time)}</p>
                         </div>
                     </div>
                 </div>
