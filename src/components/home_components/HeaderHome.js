@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import {ReactComponent as HomeIcon} from '../../images/HomeIcon.svg';
+import {ReactComponent as ArchiveIcon} from '../../images/ArchiveIcon.svg';
+import {ReactComponent as LibraryIcon} from '../../images/LibraryIcon.svg';
 
 function HeaderHome(){
   
@@ -40,8 +43,22 @@ function HeaderHome(){
                   </Link>
                 </div>
             </div>
-            <div className="col-md-4" style={{minWidth:"320px"}}>
+            <div className="col-md-3" style={{minWidth:"320px"}}>
                 <input id="search" type="text" placeholder="Search..." name="search"></input>
+            </div>
+            <div className="col-lg-2" >
+              <Link to="/">
+                <HomeIcon className="header_icon" id="home-icon" alt="Home" width="35px" height="35px" style={{marginTop:"20px", marginRight:"20px"}}>
+                </HomeIcon>
+              </Link>
+              <Link to="/Archive">
+                <ArchiveIcon className="header_icon" id="archive-icon" alt="Archive" width="35px" height="35px" style={{marginTop:"20px" , marginRight:"20px"}}>
+                </ArchiveIcon>
+              </Link>
+              <Link to="/Library">
+                <LibraryIcon className="header_icon" id="library-icon" alt="Library" width="35px" height="35px" style={{marginTop:"20px"}}>
+                </LibraryIcon>
+              </Link>
             </div>
             <div className="col-1"></div>
             <div id="dropdown-image_grid_column" className="col-md-2">
@@ -84,10 +101,26 @@ function HeaderHome(){
                   </Link>
                 </div>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-2" >
               <form>
                 <input id="search" type="text" placeholder="Search..." name="search"></input>
               </form>
+            </div>
+            <div className="col-lg-2" style={{width:"60%"}}>
+
+              <Link to="/">
+                <HomeIcon className="header_icon" id="home-icon" alt="Home" width="35px" height="35px" style={{marginTop:"20px", marginRight:"20px"}}>
+                </HomeIcon>
+              </Link>
+              <Link to="/Archive">
+                <ArchiveIcon className="header_icon" id="archive-icon" alt="Archive" width="35px" height="35px" style={{marginTop:"20px" , marginRight:"20px"}}>
+                </ArchiveIcon>
+              </Link>
+              <Link to="/Library">
+                <LibraryIcon className="header_icon" id="library-icon" alt="Library" width="35px" height="35px" style={{marginTop:"20px"}}>
+                </LibraryIcon>
+              </Link>
+
             </div>
             <div className="col-md-3" style={{minWidth:"220px"}}>
               <div  className="header_button_container">
