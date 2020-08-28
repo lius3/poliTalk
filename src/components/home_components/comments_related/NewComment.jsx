@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import Reply from './Reply';
+import Reply from './Reply.jsx';
 import ConvertTime from "../../functions/ConvertTime";
 import ReplyPopup from './ReplyPopup';
 
@@ -78,7 +78,7 @@ function NewComment({username, explanation, vote, explanation_id, time, setExpID
                             <p id="NewComment-username">{username}</p>
                             <p id="NewComment-you_voted">{yes_or_no} {ConvertTime(time)}</p>    
                             <p id="NewComment-you_voted">CHECK{(time)}</p>  
-                            <p id="NewComment-you_voted">current time{test()}</p>  
+                            <p id="NewComment-you_voted">current time{test()}</p>   
                             <p id="NewComment-explanation">{explanation}</p>
                             <div onClick={()=>openReply()} style={{cursor:"pointer", marginLeft:"5px", display:"inline-block"}}>
                                 <i style={{fontSize:"15px"}} class="fa fa-reply" aria-hidden="true"></i>

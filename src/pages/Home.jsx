@@ -4,7 +4,7 @@ import Topic from '../components/home_components/topic_space/Topic';
 import CommentsBox from '../components/home_components/comments_related/CommentsBox';
 import HeaderHome from '../components/home_components/HeaderHome';
 import BackgroundInfo from '../components/home_components/topic_space/BackgroundInfo';
-import VotingSystem from '../components/home_components/voting_components/VotingSystem';
+import VotingSystem from '../components/home_components/voting_components/VotingSystem.jsx';
 import ConvertTime from '../components/functions/ConvertTime';
 
 

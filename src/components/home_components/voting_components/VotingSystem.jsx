@@ -160,7 +160,7 @@ function VotingSystem({yays, nays, setYays, setNays, setComment_Id, changeCommen
                     <div id="send_vote_container">
                         {/* <p>Character limit: 1000</p> */}
                         <button id="send_vote" onClick={()=> sendVote()}>
-                            Vote
+                            TESTIOJSDFKLZXJFO;
                         </button>
                     </div>  
                 </div>      
@@ -169,7 +169,7 @@ function VotingSystem({yays, nays, setYays, setNays, setComment_Id, changeCommen
             </div>
             {/* The yay and nay buttons */}
             <div className="vote_buttons">
-                <button id="yay" onClick={()=>openVote("Yay")}>YES</button>
+                <button id="yay" onClick={()=>openVote("Yay")}>HELLO</button>
                 <button id="nay" onClick={()=>openVote("Nay")}>NO</button>
             </div>
             </>
