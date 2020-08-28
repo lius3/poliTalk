@@ -1,0 +1,92 @@
+#popup_container {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    width: 40%;
+    height: 60%;
+    min-width: 400px;
+    min-height: 500px;
+    max-height: 500px;
+    z-index: 10;
+    border-radius: 10px;
+    background-color: black;
+    border: 1px black solid;
+  }
+
+#explanation {
+    display: block;
+    margin: auto;
+    margin-top: 0;
+    border: 2px #073763ff solid;
+    padding: 10px;
+    font-size: 20px;
+    width: 90%;
+    height: 70%;
+  }
+  
+  #send_vote_container {
+    background-color: black;
+    width: 30%;
+    min-width: 100px;
+    margin-left: 70%;
+  }
+  
+  button#send_vote {
+    display: block;
+    margin: auto;
+    border-radius: 5px;
+    background-color: #073763ff;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial;
+    height: 50px;
+    width: 50%;
+  }
+  
+  .vote_buttons {
+    width: fit-content;
+    display: block;
+    margin: auto;
+  }
+  
+  #you_voted {
+    margin-left: 10px;
+  }
+  
+  #explain-area {
+    height: 100%;
+    width: 100%;
+  }
+  
+  #explain-area div {
+    width: 90%;
+    display: block;
+    margin: auto;
+    background-color: #073763;
+    margin-bottom: -10px;
+  }
+  
+  #yay {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 20px;
+    height: 50px;
+    width: 130px;
+    background-color: #92b7c9;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+  
+  #nay {
+    display: inline-block;
+    margin-top: 10px;
+    height: 50px;
+    width: 130px;
+    background-color:#073763ff;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+  }
