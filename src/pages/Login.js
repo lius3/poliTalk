@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import SignUp from './SignUp';
 
 const containerStyle = {  
     position: 'absolute', 
@@ -51,18 +52,18 @@ const dividerStyle = {
     width: "100px"
 }
 
-function Head() {
-    return(
+// function Head() {
+//     return(
        
-        <div className="row justify-content-center"  align="center">
-            <div className="col-6">
-                <Link to="/" exact style={{textDecoration:"none"}}> 
-                    <header style={headStyle}><h1 style={h1Style}>Politalk</h1></header>
-                </Link>
-            </div>         
-        </div>
-    );
-}
+//         <div className="row justify-content-center"  align="center">
+//             <div className="col-6">
+//                 <Link to="/" exact style={{textDecoration:"none"}}> 
+//                     <header style={headStyle}><h1 style={h1Style}>Politalk</h1></header>
+//                 </Link>
+//             </div>         
+//         </div>
+//     );
+// }
 
 function LoginForm({type, text}){
     return(
@@ -92,7 +93,7 @@ function LoginButton({buttonType}){
 
         return(
             <div className="row justify-content-center">
-                <div className="col-4" align = "center">
+                <div className="col-4">
                     <input type="submit" value={message} style={buttonStyle} onClick={()=>loginWithRedirect()}></input>
                 </div>
            </div>
@@ -103,7 +104,7 @@ function LoginButton({buttonType}){
         buttonStyle = buttonStyleSmall;
 
         return(
-            <div className="col-2" align = "center">
+            <div className="col-2">
                 <input type="submit" value={message} style={buttonStyle} ></input>
             </div>
         );
@@ -151,9 +152,9 @@ export default function Login() {
                 <LoginButton buttonType="Google"/>
                 <LoginButton buttonType="Facebook"/>
                 
-            </div>    
-
+            </div>   
            
+            
             
         </>
        
