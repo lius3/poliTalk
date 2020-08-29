@@ -52,18 +52,20 @@ const dividerStyle = {
     width: "100px"
 }
 
-// function Head() {
-//     return(
+function Head() {
+    return(
        
-//         <div className="row justify-content-center"  align="center">
-//             <div className="col-6">
-//                 <Link to="/" exact style={{textDecoration:"none"}}> 
-//                     <header style={headStyle}><h1 style={h1Style}>Politalk</h1></header>
-//                 </Link>
-//             </div>         
-//         </div>
-//     );
-// }
+        <div className="row justify-content-center"  align="center">
+            <div className="col-6">
+                <Link to="/" exact style={{textDecoration:"none"}}> 
+                    <header style={headStyle}><h1 style={h1Style}>Politalk</h1></header>
+                </Link>
+            </div>         
+        </div>
+    );
+}
+
+
 
 function LoginForm({type, text}){
     return(
