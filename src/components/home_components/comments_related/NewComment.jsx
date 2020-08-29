@@ -76,9 +76,7 @@ function NewComment({username, explanation, vote, explanation_id, time, setExpID
                         <div className="col-1" style={{marginBottom:"15px"}}></div>
                         <div className="col-10" id="new_comment">
                             <p id="NewComment-username">{username}</p>
-                            <p id="NewComment-you_voted">{yes_or_no} {ConvertTime(time)}</p>    
-                            <p id="NewComment-you_voted">CHECK{(time)}</p>  
-                            <p id="NewComment-you_voted">current time{test()}</p>  
+                            <p id="NewComment-you_voted">{yes_or_no} {ConvertTime(time)}</p>     
                             <p id="NewComment-explanation">{explanation}</p>
                             <div onClick={()=>openReply()} style={{cursor:"pointer", marginLeft:"5px", display:"inline-block"}}>
                                 <i style={{fontSize:"15px"}} class="fa fa-reply" aria-hidden="true"></i>
