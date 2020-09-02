@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
 
-
 function ReplyPopup({explanation_id, setComment_Id, changeCommentsList}) {
 
     const { user } = useAuth0();
@@ -36,7 +35,6 @@ function ReplyPopup({explanation_id, setComment_Id, changeCommentsList}) {
     
     const closeReply_ReloadComments = () => {
         closeReply();
-        //this "refreshes" the page
         changeCommentsList([])
         setComment_Id(null)
     }

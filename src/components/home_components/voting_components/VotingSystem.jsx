@@ -103,6 +103,8 @@ function VotingSystem({yays, nays, setYays, setNays, setComment_Id, changeCommen
             else{
                 window.alert("not long enough");
             }
+        
+           
         }
         
         /**Open the popup and display text according if user clicked Yay or Nay button. */
@@ -131,7 +133,7 @@ function VotingSystem({yays, nays, setYays, setNays, setComment_Id, changeCommen
             {/* Element used to gray out the screen when the Vote Popup appears*/}
             <div id="gray_out"></div>
             {/* The popup that displays once a Yay or Nay button is clicked */}
-            <div id="popup_container" className="container">
+            <div id="popup_container" className="container" style={{backgroundColor:"purple"}}>
                 <div className="row" style={{height:"10%"}}>
                     <div className="col-1">
                         {/* The X button used to close the popup */}
@@ -139,31 +141,29 @@ function VotingSystem({yays, nays, setYays, setNays, setComment_Id, changeCommen
                     </div>
                 </div>
                 
-                <div className="row" style={{height:"78%", }}>
-                   
-                    {/* <div id="profile_pic_container">
-                        <img id="profile_pic" className="rounded-circle" src={user.picture} alt="Yeet"/>
-                    </div> */}
-                    <div id="explain-area">
-                            <div id="explain-header">
-                                <h2 id="you_voted"></h2>
-                            </div>
-                            <textarea onKeyDown={(pressedKey) => pressedKey.keyCode === 13 /*Is the pressed key the enter button*/? sendVote() : null }
-                                maxlength="1000" resize="none" placeholder="Please explain why..." id="explanation" cols="30" rows="10"></textarea>
-                    </div>
+                <div className="row" style={{height:"78%", backgroundColor:'blue'}}>
+                    <div style={{display:"flex", height:"100%", width:"100%",}}>
+                        {/* <div id="profile_pic_container">
+                            <img id="profile_pic" className="rounded-circle" src={user.picture} alt="Yeet"/>
+                        </div> */}
+                        <div id="explain-area" style={{}}>
+                                <div>
+                                    <h2 id="you_voted"></h2>
+                                </div>
+                                <textarea onKeyDown={(pressedKey) => pressedKey.keyCode === 13 /*Is the pressed key the enter button*/? sendVote() : null }
+                                 maxlength="1000" placeholder="Please explain why..." id="explanation" cols="30" rows="10"></textarea>
+                        </div>
                         
-                    
+                    </div>
                 </div>
-                <div className="row justify-content-end" >
-                    
-                    <div className="col-3 text-center"> 
-                        <button id="send_vote" className="" onClick={()=> sendVote()}>
+                <div className="row" >
+                    <div id="send_vote_container">
+                        {/* <p>Character limit: 1000</p> */}
+                        <button id="send_vote" onClick={()=> sendVote()}>
                             Vote
                         </button>
-                    </div> 
-                   
-                </div>  
-
+                    </div>  
+                </div>      
                 
                 
             </div>

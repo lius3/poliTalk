@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NewComment from './NewComment.jsx';
 import ReplyPopup from './ReplyPopup.jsx';
-import "./CommentsBox.css";
 
 function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_Id, list}){
 
@@ -14,7 +13,6 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
       let parsed_vote = JSON.parse(JSON.stringify(jsonData[comment_id].vote));
       let parsed_explanation_id = JSON.parse(JSON.stringify(jsonData[comment_id].explanation_id));
       let parsed_created_time = JSON.stringify(jsonData[comment_id].created_time);
-
       list.push({user: parsed_user, explanation: parsed_explanation, vote: parsed_vote, explanation_id: parsed_explanation_id, cTime: parsed_created_time});
       changeCommentsList(list); 
     }
@@ -97,7 +95,7 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
 
     return (
       <>
-          <div id="comments_box" style={{backgroundColor:"black"}}>
+          <div id="comments_box">
             <div id="scrollable-comments" onScroll={()=> moreComments()}>   
               { 
                 commentsList.map((item, index) => (

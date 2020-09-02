@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import Topic from '../components/home_components/topic_space/Topic';
 import CommentsBox from '../components/home_components/comments_related/CommentsBox';
-import HeaderHome from '../components/home_components/HeaderHome';
+import HeaderHome from '../components/home_components/header/HeaderHome';
 import BackgroundInfo from '../components/home_components/topic_space/BackgroundInfo';
-import VotingSystem from '../components/home_components/voting_components/VotingSystem.jsx';
+import VotingSystem from '../components/home_components/voting_components/VotingSystem';
+// import NavBar from '../components/home_components/navigation/NavBar'
 import ConvertTime from '../components/functions/ConvertTime';
 
 
@@ -32,8 +33,12 @@ function Home(){
     <>
       <HeaderHome/>
       <div className="row">
-          <div className="col-1"></div>
-          <div className="col-md-5" style={{minHeight:"700px"}}>
+          {/* <div className="col-1">
+            <NavBar/>
+          </div> */}
+          <div className="col-1">
+          </div>
+          <div className="col-md-5" style={{minHeight:"700px" }}>
             <div style={{display:"block"}}>
               <Topic question={topic}/>
             </div>
@@ -50,8 +55,6 @@ function Home(){
           </div>
       </div>
     </>
-
-
   );
 }
 
