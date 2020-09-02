@@ -230,7 +230,7 @@ html {
 }
 
 
-/*Elements in CommentsBox*/
+/* Elements in CommentsBox
 #new_comment {
   border-radius: 10px;
   margin-bottom: 15px;
@@ -253,7 +253,7 @@ html {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
-}
+} */
 
 /*#refresh-icon {
   transform: scaleX(-1) rotate(360deg);
@@ -278,26 +278,6 @@ html {
   overflow: auto;
   height: 95%;
 }
-
-/*Element in NewComment*/
-#NewComment-username {
-  display: inline-block;
-  color: #92b7c9;
-  font-size: 20px;
-  padding-top: 10px;
-  margin-right: 5px;
-}
-
-#NewComment-you_voted {
-  color: #92b7c9;
-  display: inline-block;
-  width: max-content;
-}
-
-#NewComment-explanation {
-  font-size: 18px;
-}
-
 
 /*Elements in Reply*/
 

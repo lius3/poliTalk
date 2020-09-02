@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import Reply from './Reply.jsx';
 import ConvertTime from "../../functions/ConvertTime";
-import ReplyPopup from './ReplyPopup';
+import "./NewComment.css";
+
 
 function NewComment({username, explanation, vote, explanation_id, time, setExpID}) {
 
@@ -75,11 +76,14 @@ function NewComment({username, explanation, vote, explanation_id, time, setExpID
                         {/* <div className="col-1"></div> */}
                         <div className="col-1" style={{marginBottom:"15px"}}></div>
                         <div className="col-10" id="new_comment">
-                            <p id="NewComment-username">{username}</p>
-                            <p id="NewComment-you_voted">{yes_or_no} {ConvertTime(time)}</p>    
+                            <p id="header">{username} voted {yes_or_no} {ConvertTime(time)}</p>
+
+                            {/* REMOVE THE ENCLOSED PARTS when done testing ================ */}
                             <p id="NewComment-you_voted">CHECK{(time)}</p>  
                             <p id="NewComment-you_voted">current time{test()}</p>   
                             <p id="NewComment-explanation">{explanation}</p>
+                            {/* ========================================== */}
+
                             <div onClick={()=>openReply()} style={{cursor:"pointer", marginLeft:"5px", display:"inline-block"}}>
                                 <i style={{fontSize:"15px"}} class="fa fa-reply" aria-hidden="true"></i>
                                 <p style={{display:"inline-block", marginLeft:"5px"}}>Reply</p>
