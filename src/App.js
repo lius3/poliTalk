@@ -2,7 +2,6 @@ import React from 'react';
 import Home from './pages/Home';
 import Login from './pages/Login.js';
 import Profile from './pages/Profile.js';
-import NotFound from './pages/NotFound.js';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Auth0Provider} from '@auth0/auth0-react';
 
@@ -21,7 +20,6 @@ function App() {
           <Route path='/' exact component={Home}/>
           <Route path='/login' component={Login}/>
           <Route path='/profile' component={Profile}/>
-          <Route path='/404NotFound' component={NotFound}/>
         </Switch>
       </Router>
     </Auth0Provider> 

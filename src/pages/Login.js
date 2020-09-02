@@ -1,47 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
-
-const containerStyle = {  
-    position: 'absolute', 
-    left: '50%', 
-    top: '35%',
-    transform: 'translate(-50%, -35%)',
-    minWidth: "1000px"
-}
-
-const headStyle = {
-    width: "100%",
-    height:"100px",
-    marginBottom: "15px",
-    fontFamily: "'Spectral', serif",
-    color: "#ffe599",
-    backgroundColor: "#073763ff"
-}
-
-const h1Style = {
-    lineHeight: "100px",
-}
-
-
-const formComponentStyle ={
-    padding: "10px",
-    width: "100%",
-    height: "3rem",
-  
-}
-
-const buttonStyleBig = {
-    width: "100%",
-    height: "3rem",
-    marginTop:"15px",
-}
-
-const buttonStyleSmall = {
-    width: "100%",
-    height: "3rem",
-    marginTop:"15px",
-}
+import UserForm from "../components/forms_components/UserForm.jsx"
+import FormsHead from "../components/forms_components/FormsHead.jsx"
+import FormsButton from '../components/forms_components/FormsButton.jsx';
+import FormDivider from '../components/forms_components/FormDivider.jsx';
+import Signup from './SignUp';
 
 
 const dividerStyle = {
@@ -51,109 +13,42 @@ const dividerStyle = {
     width: "100px"
 }
 
-function Head() {
-    return(
-       
-        <div className="row justify-content-center"  align="center">
-            <div className="col-6">
-                <Link to="/" exact style={{textDecoration:"none"}}> 
-                    <header style={headStyle}><h1 style={h1Style}>Politalk</h1></header>
-                </Link>
-            </div>         
-        </div>
-    );
-}
-
-function LoginForm({type, text}){
-    return(
-        <>
-            <div className="row justify-content-center">
-                <div className="col-4" align="center">
-                    <label align="left" style={{width:"100%"}} for={text}>{text}:</label>
-                    <input id={text} style={formComponentStyle} type={type} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                    title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"></input>
-                </div>
-            </div>
-       </>
-    );
-}
-
-
-function LoginButton({buttonType}){
-
-    var message;
-    var buttonStyle;
-    const { loginWithRedirect } = useAuth0();
-
-
-    if(buttonType === "Google" || buttonType === "Facebook"){
-        message = `Login with ${buttonType.toString()}` ;
-        buttonStyle = buttonStyleBig;
-
-        return(
-            <div className="row justify-content-center">
-                <div className="col-4" align = "center">
-                    <input type="submit" value={message} style={buttonStyle} onClick={()=>loginWithRedirect()}></input>
-                </div>
-           </div>
-        );
-    }
-    else if(buttonType === "Log in" || buttonType === "Sign up"){
-        message = `${buttonType.toString()}`;
-        buttonStyle = buttonStyleSmall;
-
-        return(
-            <div className="col-2" align = "center">
-                <input type="submit" value={message} style={buttonStyle} ></input>
-            </div>
-        );
-    }
-    else{
-        throw new Error("Incorrect buttonType");
-    }
-}
-
-function Divider(){
-
-    return(
-        <div className="row justify-content-center">
-          {/*empty divider div */}
-            <div className="col-2" style={dividerStyle}>  </div>     
-            <div className="col-1">  </div>   
-            <div className="col-2" style={dividerStyle}>  </div>    
-        </div>
-    );
-
-  
-}
 
 export default function Login() {
 
     return (
-        <>  
-             <div className="container" style={containerStyle}>
-
-                <Head/>
+        <> 
+            <div className="container containerStyle">
+                <div className="row justify-content-center"  align="center">
+                    <FormsHead/>
+                </div>
                 
-                <LoginForm type = "text" text = "Username"/>
-                <LoginForm type = "password" text = "Password"/>
+                <div className="row justify-content-center">
+                    <UserForm type="text" text="Username" formType="long"/>
+                </div>
+
+                <div className="row justify-content-center">
+                    <UserForm type="password" text="Password" formType="long"/>
+                </div>
 
                 <div className="row justify-content-center">
                 
-                    <LoginButton buttonType="Log in"/>
-                    <LoginButton buttonType="Sign up"/>
+                    <FormsButton buttonType="small" message="Log in"/>
+                    <FormsButton buttonType="small" message ="Sign up"/>
         
                 </div>
 
-                <Divider/>
+                <FormDivider/>
 
-               
-                <LoginButton buttonType="Google"/>
-                <LoginButton buttonType="Facebook"/>
-                
+                <div className="row justify-content-center">
+                    <FormsButton buttonType="big"  message="Log in with Google"/>
+                </div>
+
+                <div className="row justify-content-center">
+                    <FormsButton buttonType="big" message="Log in with Facebook"/>
+                </div>
+            
             </div>    
-
-           
             
         </>
        

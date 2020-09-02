@@ -1,0 +1,24 @@
+/*Elements in CommentsBox*/
+/* #new_comment {
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color: black;
+  } */
+  
+  
+  #comments_box {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px lightgray solid;
+    height: 95%;
+    width: 90%;
+    padding-top: 30px;
+  }
+  
+  #reload_comments_btn {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
