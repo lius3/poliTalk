@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import "./Forms.css"
+import "./Forms.css";
 
 
 function Head() {
@@ -18,7 +18,7 @@ function Head() {
     );
 }
 
-function LoginForm({type, text, formType}){
+function SignupForm({type, text, formType}){
 
     if(formType == "long"){
         return(
@@ -51,9 +51,32 @@ function LoginForm({type, text, formType}){
 }
 
 
-function LoginButton({buttonType, message}){
+function SignupButton({buttonType, message}){
 
     let buttonStyle;
+
+    const sendRegistration = () => {
+        let first_name = document.getElementById("First name").value;
+        let last_name = document.getElementById("Last name").value;
+        let email = document.getElementById("Email").value;
+        let username = document.getElementById("Username").value;
+        let password = document.getElementById("Password").value;
+        let data = {first_name: first_name, last_name: last_name, username: username, password: password, email: email}
+
+        let req = new Request("http://localhost/politalk/auth/signup.php", 
+        {
+            method:'post',
+            headers: {
+                'Accept' : 'application/json',
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+        );
+
+        fetch(req)
+        .catch(console.error())
+    }
 
     if(buttonType == "big"){
    
@@ -62,7 +85,7 @@ function LoginButton({buttonType, message}){
         return(
             <div className="row justify-content-center">
                 <div className="col-4">
-                    <input type="submit" value={message} className= {buttonStyle} ></input>
+                    <input onClick={()=> sendRegistration()} type="submit" value={message} className= {buttonStyle} ></input>
                 </div>
            </div>
         );
@@ -83,22 +106,23 @@ function LoginButton({buttonType, message}){
 }
 
 export default function Signup() {
+    
     return (
         <>
         <div className="container containerStyle">
             <Head/>
             <div className="row justify-content-center">
-                <LoginForm type="text" text="Fisrt name" formType="short"/>
-                <LoginForm type="text" text="Last name" formType="short"/>
+                <SignupForm type="text" text="First name" formType="short"/>
+                <SignupForm type="text" text="Last name" formType="short"/>
             </div>
             
 
-            <LoginForm type="text" text="Email" formType="long"/>
-            <LoginForm type="text" text="Username" formType="long"/>
-            <LoginForm type="password" text="Password" formType="long"/>
-            <LoginForm type="password" text="Confirm Password" formType="long"/>
+            <SignupForm type="text" text="Email" formType="long"/>
+            <SignupForm type="text" text="Username" formType="long"/>
+            <SignupForm type="password" text="Password" formType="long"/>
+            <SignupForm type="password" text="Confirm Password" formType="long"/>
 
-            <LoginButton buttonType="big" message="Sign up"/>
+            <SignupButton buttonType="big" message="Sign up"/>
         </div>
         </>
     )

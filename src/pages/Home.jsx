@@ -5,7 +5,6 @@ import CommentsBox from '../components/home_components/comments_related/Comments
 import HeaderHome from '../components/home_components/HeaderHome';
 import BackgroundInfo from '../components/home_components/topic_space/BackgroundInfo';
 import VotingSystem from '../components/home_components/voting_components/VotingSystem.jsx';
-import ConvertTime from '../components/functions/ConvertTime';
 
 
 function Home(){
@@ -33,7 +32,7 @@ function Home(){
       <HeaderHome/>
       <div className="row">
           <div className="col-1"></div>
-          <div className="col-md-5" style={{minHeight:"700px"}}>
+          <div className="col-md-5">
             <div style={{display:"block"}}>
               <Topic question={topic}/>
             </div>
@@ -45,7 +44,7 @@ function Home(){
                             comment_id={comment_id} setComment_Id={setComment_Id}/>
             </div>
           </div>
-          <div className="col-md-6" style={{height:"85vh", minHeight:"810px"}}>
+          <div className="col-md-6" style={{height:"90vh", minHeight:"810px"}}>
             <CommentsBox commentsList={commentsList} changeCommentsList={changeCommentsList} comment_id={comment_id} setComment_Id={setComment_Id} list={list}/>
           </div>
       </div>

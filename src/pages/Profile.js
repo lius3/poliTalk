@@ -4,11 +4,12 @@ import HeaderHome from '../components/home_components/HeaderHome';
 import RecentLikedArticles from '../components/profile_components/RecentLikedArticles';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import { hasToken } from '../auth/auth';
 
 function Profile () {
     const { isAuthenticated } = useAuth0();
 
-    if (!isAuthenticated) {
+    if (!isAuthenticated && !hasToken()) {
         return <Redirect to="./login"/>
     }
 

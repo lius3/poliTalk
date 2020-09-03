@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import NewComment from './NewComment.jsx';
+import Explanation from './Explanation';
 import ReplyPopup from './ReplyPopup.jsx';
 
 function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_Id, list}){
@@ -12,7 +12,7 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
       let parsed_explanation = JSON.parse(JSON.stringify(jsonData[comment_id].explanation));
       let parsed_vote = JSON.parse(JSON.stringify(jsonData[comment_id].vote));
       let parsed_explanation_id = JSON.parse(JSON.stringify(jsonData[comment_id].explanation_id));
-      let parsed_created_time = JSON.parse(JSON.stringify(jsonData[comment_id].created_time))
+      let parsed_created_time = JSON.stringify(jsonData[comment_id].created_time);
       list.push({user: parsed_user, explanation: parsed_explanation, vote: parsed_vote, explanation_id: parsed_explanation_id, cTime: parsed_created_time});
       changeCommentsList(list); 
     }
@@ -61,11 +61,12 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
           }
           else {
             try {
-              modList(jsonData,list);     
+              modList(jsonData, list);     
               setComment_Id(comment_id-1);       
             }
             catch(e) {
-              console.log("No more comments to load.");
+              console.log(e);
+              //console.log("No more comments to load.");
             }            
           }
         })
@@ -99,7 +100,7 @@ function CommentsBox({commentsList, changeCommentsList, comment_id, setComment_I
             <div id="scrollable-comments" onScroll={()=> moreComments()}>   
               { 
                 commentsList.map((item, index) => (
-                  <NewComment key={index} username={item.user} explanation={item.explanation} vote={item.vote} explanation_id={item.explanation_id} time={item.cTime} setExpID={setExpID}/>
+                  <Explanation key={index} username={item.user} explanation={item.explanation} vote={item.vote} explanation_id={item.explanation_id} time={item.cTime} setExpID={setExpID}/>
                 ))
               }
             </div>

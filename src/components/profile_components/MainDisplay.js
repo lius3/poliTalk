@@ -25,9 +25,9 @@ function MainDisplay() {
     return (
         <div id="main-display-container" style={{overflow:"auto"}}>
             <div className="top-section">
-                <img id="profile-profile_picture" className="rounded-circle" src={user.picture} alt=""/>
+                {/* <img id="profile-profile_picture" className="rounded-circle" src={user.picture} alt=""/> */}
             </div>
-            <div className="bottom-section" style={{height:"60vh"}}>
+            <div className="bottom-section" style={{height:"70vh"}}>
                 <div className="profile-username-container" style={{paddingLeft:"20%"}}>
                     <div style={{width:"80%", display:"inline-block"}}>
                         <h1 className="profile-username">{user.name}</h1>
