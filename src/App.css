@@ -14,8 +14,8 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Elements in HeaderHome */
-.menu_icon {
+/* No longer used: Elements in HeaderHome */
+/* .menu_icon {
   width: 50px;
   height: 10px;
   background-color: black;
@@ -61,9 +61,9 @@ html {
 #clickfornav_icon:hover {
   background-color: gainsboro;
   transition: background-color 0.5s;
-}
+} */
 
-#logo {
+/* #logo {
   position: relative;
   text-align: center;
   top: 8px;
@@ -75,19 +75,21 @@ html {
 #search {
   display: block;
   margin: auto;
-  width: 85%;
+  width: 100%;
   margin-top: 20px;
   border-radius: 1px;
   height: 40px;
   border: 5px #073763ff solid;
 }
 
-.header_icon{
+defualt header icon setting */
+/* .header_icon{
   fill:white;
+  background-color:pink;
 }
 
-.header_icon:hover{
-  /* background-color: aqua; */
+/* header icon when hovered over */
+/* .header_icon:hover{
   fill: lightgrey;
 }
 
@@ -146,14 +148,14 @@ html {
   margin-top: 5px;
 }
 
-/*#triangle-down {
+#triangle-down {
   margin-top: 60px;
   height: 0px;
   width: 0px;
   border-left: 7px solid transparent;
 	border-right: 7px solid transparent;
 	border-top: 7px solid white;
-}*/
+}
 
 #dropdown-content {
   position: absolute;
@@ -174,7 +176,7 @@ html {
 
 #dropdown-content p:hover {
   background-color: gray;
-}
+} */ 
 
 /* Topic */
 #topic {
@@ -183,6 +185,135 @@ html {
   text-align: center;
   padding: 20px;
   cursor: default;
+}
+
+/* Elements in VotingSystem */
+#gray_out {
+  z-index: 10;
+  left: 0;
+  top: 0;
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: gray;
+  opacity: 0.8;
+}
+
+#popup_container {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  height: 60%;
+  min-width: 250px;
+  min-height: 300px;
+  z-index: 10;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px black solid;
+}
+
+#close_popup {
+  font-weight: bold;
+  margin-top: 25%;
+  cursor: pointer;
+}
+
+#profile_pic_container {
+  height: 100%;
+  width: 14%;
+  min-width: 60px;
+  margin-left: 4%;
+}
+ 
+#profile_pic {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  width: 85%;
+  min-width: 50px;
+  height: 25%;
+  min-width: 50px;
+  border: 5px solid #92b7c9;
+}
+
+#explanation {
+  display: block;
+  margin: auto;
+  margin-top: 0;
+  border: 2px #073763ff solid;
+  padding: 10px;
+  font-size: 20px;
+  width: 90%;
+  height: 70%;
+}
+
+#send_vote_container {
+  height: 100%;
+  width: 30%;
+  min-width: 100px;
+  margin-left: 70%;
+}
+
+button#send_vote {
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+  background-color: #073763ff;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Arial;
+  height: 50px;
+  width: 50%;
+}
+
+.vote_buttons {
+  width: fit-content;
+  display: block;
+  margin: auto;
+}
+
+#you_voted {
+  margin-left: 10px;
+}
+
+#explain-area {
+  height: 100%;
+  width: 85%;
+}
+
+#explain-area div {
+  width: 90%;
+  display: block;
+  margin: auto;
+  background-color: #073763;
+  margin-bottom: -10px;
+}
+
+#yay {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 20px;
+  height: 50px;
+  width: 130px;
+  background-color: #92b7c9;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#nay {
+  display: inline-block;
+  margin-top: 10px;
+  height: 50px;
+  width: 130px;
+  background-color:#073763ff;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
 }
 
 /*Elements in ReplyPopup*/
@@ -230,7 +361,7 @@ html {
 }
 
 
-/* Elements in CommentsBox
+/*Elements in CommentsBox*/
 #new_comment {
   border-radius: 10px;
   margin-bottom: 15px;
@@ -253,7 +384,7 @@ html {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
-} */
+}
 
 /*#refresh-icon {
   transform: scaleX(-1) rotate(360deg);
@@ -278,6 +409,26 @@ html {
   overflow: auto;
   height: 95%;
 }
+
+/*Element in NewComment*/
+#NewComment-username {
+  display: inline-block;
+  color: #92b7c9;
+  font-size: 20px;
+  padding-top: 10px;
+  margin-right: 5px;
+}
+
+#NewComment-you_voted {
+  color: #92b7c9;
+  display: inline-block;
+  width: max-content;
+}
+
+#NewComment-explanation {
+  font-size: 18px;
+}
+
 
 /*Elements in Reply*/
 
