@@ -1,7 +1,9 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import ConvertTime from "../../functions/ConvertTime";
+import ConvertTime from "../../../functions/ConvertTime";
 import "./Reply.css";
+
+
 function Reply({username, reply, time}) {
 
     const { user } = useAuth0();

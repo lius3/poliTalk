@@ -16,8 +16,19 @@
     border-radius: 10px;
     background-color:white;
     border: 1px black solid;
-  }
+}
 
+#gray_out {
+  opacity: 0.7;
+  z-index: 5;
+  display: none;
+  background-color: gray;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
   
 
 #explanation {
@@ -62,6 +73,7 @@
     width: fit-content;
     display: block;
     margin: auto;
+    margin-bottom: 50px;
   }
   
   #you_voted {

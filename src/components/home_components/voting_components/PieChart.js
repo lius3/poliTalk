@@ -19,7 +19,7 @@ function PieChart({yay_votes, nay_votes}){
     if (yay_votes > 0 || nay_votes > 0) {
       return (
         <Chart
-            height={"400px"}
+            height={"350px"}
             chartType="PieChart"
             data={[
               ['Vote', '# of Votes'],
@@ -28,7 +28,7 @@ function PieChart({yay_votes, nay_votes}){
             ]}
             options={{
               chartArea: {
-                width:"95%",
+                width:"100%",
                 height: "100%"
               },
               is3D: true,

@@ -1,0 +1,26 @@
+/*Element in Explanation*/
+#header {
+    display: inline-block;
+    color: #92b7c9;
+    font-size: 20px;
+    padding-top: 10px;
+    margin-right: 5px;
+  }
+  
+  #NewComment-you_voted {
+    color: #92b7c9;
+    /* display: inline-block;
+    width: max-content; */
+  }
+  
+  #NewComment-explanation {
+    font-size: 18px;
+  }
+  
+  #new_comment {
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color:#F7F3F3FF;
+    word-break:break-word;
+
+  }
