@@ -3,6 +3,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Profile from './pages/Profile.js';
 import SignUp from './pages/SignUp';
+import NotFound from './pages/NotFound.js';
+
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Auth0Provider} from '@auth0/auth0-react';
 
@@ -22,6 +24,7 @@ function App() {
           <Route path='/login' component={Login}/>
           <Route path='/profile' component={Profile}/>
           <Route path='/signup' component={SignUp}/>
+          <Route path='/404NotFound' component={NotFound}/>
         </Switch>
       </Router>
     </Auth0Provider> 
